@@ -57,7 +57,7 @@ function Login() {
       </div>
 
       <div className='my-3 flex flex-row justify-center text-center items-center'>
-        <p className='text-gray-300'>Don't have an account? <span className='text-teal-300'>Sign up</span></p>
+        <p className='text-gray-300'>Don't have an account? <span className='text-teal-300 cursor-pointer'>Sign up</span></p>
       </div>
     </div>
   )
