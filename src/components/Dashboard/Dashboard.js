@@ -3,6 +3,7 @@ import { Drawer, Button, DatePicker } from 'antd';
 
 function Dashboard() {
 
+    const [date, setDate] = useState("");
     const [open, setOpen] = useState(false);
     const showDrawer = () => {
         setOpen(true);
@@ -10,6 +11,10 @@ function Dashboard() {
     const onClose = () => {
         setOpen(false);
     };
+
+    const onChange = (date, dateString) => {
+        console.log(date, dateString);
+      };
 
     return (
         <div>
@@ -23,12 +28,8 @@ function Dashboard() {
                 onClose={onClose}
                 open={open}
             >
-                <DatePicker.RangePicker
-                    style={{
-                        width: '100%',
-                    }}
-                    getPopupContainer={(trigger) => trigger.parentElement}
-                />
+                <DatePicker onChange={onChange} />
+                <p>{date}</p>
             </Drawer>
         </div>
     )
