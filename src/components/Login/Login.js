@@ -10,6 +10,7 @@ function Login() {
 
   const { Title } = Typography;
   const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handlePassClick = () => {
@@ -31,7 +32,7 @@ function Login() {
         <h1 className='text-4xl font-bold text-white'>Login</h1>
         <p className='text-sm text-white mt-2'>Please login to continue.</p>
       </div>
-      <div className='flex flex-col justify-items-center items-center p-7'>
+      <div className='flex flex-col justify-items-center items-center py-4 px-7'>
         <div className='w-full'>
           <Typography className='text-white text-md'><span className='text-red-500'>*</span> Username</Typography>
           <ConfigProvider theme={{ token: { colorBgContainer: 'transparent', colorTextPlaceholder: 'rgb(156 163 175);', colorText: "#ffffff" } }}>
@@ -43,7 +44,7 @@ function Login() {
           <Typography className='text-white text-md'><span className='text-red-500'>*</span> Password</Typography>
           <ConfigProvider theme={{ token: { colorBgContainer: 'transparent', colorTextPlaceholder: 'rgb(156 163 175);', colorText: "#ffffff", activeBorderColor: "transparent" } }}>
             <div>
-              <Input prefix={<LockOutlined />} variant='filled' className='bg-transparent hover:bg-transparent !focus:bg-transparent placeholder:text-gray-300' addonAfter={<Typography onClick={handlePassClick} className=' focus:'> {passwordVisible ? (<span><EyeInvisibleOutlined /> Hide</span>) : (<span><EyeOutlined /> Show</span>)}</Typography>} addonBg="transparent" type={passwordVisible ? 'text' : 'password'} size='large' placeholder="Password" required />
+              <Input prefix={<LockOutlined />} variant='filled' className='bg-transparent hover:bg-transparent !focus:bg-transparent placeholder:text-gray-300' addonAfter={<Typography onClick={handlePassClick} className=' focus:'> {passwordVisible ? (<span><EyeInvisibleOutlined /> Hide</span>) : (<span><EyeOutlined /> Show</span>)}</Typography>} addonBg="transparent" type={passwordVisible ? 'text' : 'password'} size='large' placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
           </ConfigProvider>
         </div>
@@ -57,7 +58,7 @@ function Login() {
       </div>
 
       <div className='my-3 flex flex-row justify-center text-center items-center'>
-        <p className='text-gray-300'>Don't have an account? <span className='text-teal-300 cursor-pointer'>Sign up</span></p>
+        <p className='text-gray-300'>Don't have an account? <a href="/register" className='text-teal-300 cursor-pointer'>Sign up</a></p>
       </div>
     </div>
   )
