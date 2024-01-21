@@ -5,7 +5,7 @@ import Nav from '../components/Nav/Nav';
 function Home() {
   return (
     <div className='relative h-screen'>
-        <div className='inset-x-0 top-0'>
+        <div className=''>
             <Dashboard />
         </div>
         <div className='fixed inset-x-0 bottom-0'>
