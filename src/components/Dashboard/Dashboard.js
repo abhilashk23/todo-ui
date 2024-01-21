@@ -22,7 +22,7 @@ function Dashboard() {
     };
 
     return (
-        <div className='h-96'>
+        <div className='bg-blue-500 h-full'>
             <div className='p-7'>
                 <p className='text-4xl font-bold text-white'> User Dashboard</p>
             </div>
