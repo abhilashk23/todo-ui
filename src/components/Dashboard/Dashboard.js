@@ -65,7 +65,7 @@ function Dashboard() {
                     {
                         todayTasks ? (
                             todayTasks.map((task) => (
-                                <Col span={14}>
+                                <Col span={16}>
                                     <div className='flex flex-row w-full'>
                                         <div className={`${task.color} w-3 rounded-tl-md rounded-bl-md`}></div>
                                         <Card title={task.name} className='card-border w-full'>

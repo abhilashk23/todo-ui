@@ -50,7 +50,7 @@ function Login() {
         </div>
         <br />
         <div className='p-3 w-full flex flex-row justify-center text-center items-center cursor-pointer rounded-full bg-teal-300 hover:shadow-lg hover:shadow-teal-300/50 focus:shadow-lg focus:shadow-teal-300/50'>
-          <p className='text-xl font-bold'>LOGIN</p>
+          <a href='/user'><p className='text-xl font-bold'>LOGIN</p></a>
         </div>
         <div className='py-3 flex flex-row justify-center text-center items-center w-full'>
           <p className='text-teal-300'>Forgot Password?</p>
