@@ -88,7 +88,7 @@ function Dashboard() {
                 <div className='px-7 py-2'>
                     <h3 className='text-2xl text-white font-bold'>Your Tasks</h3>
                 </div>
-                <div className='px-7 py-2 flex flex-row gap-x-3'>
+                <div className='px-7 py-2 flex flex-row gap-x-3 overflow-x-auto'>
                     {
                         cats.map((cat) => (
                             <Button key={cat} onClick={() => setCategory(cat)}>
