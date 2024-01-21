@@ -97,7 +97,7 @@ function Dashboard() {
                         ))
                     }
                 </div>
-                <div className='p-7 flex flex-col gap-y-3 w-full overflow-y-scroll'>
+                <div className='p-7 flex flex-col gap-y-3 w-full overflow-y-scroll mb-10'>
                     {
                         (category == "Work") ? (
                             organizedTasks[category].map((task) => (
