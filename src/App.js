@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
@@ -11,12 +11,15 @@ import axios from 'axios';
 
 function App() {
 
+  const [userData, setuserData] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       axios.post('http://localhost:5000/users/verifyToken', { token })
         .then((response) => response.data)
         .then(data => setTimeout(() => {
+          setuserData(data);
           console.log(data);
         }), 1000)
         .catch(error => {
@@ -28,14 +31,22 @@ function App() {
   return (
     <Router>
       <div>
-        <Route path="/" exact>
-          <Login />
-        </Route>
         <Route path="/register" exact>
           <Register />
         </Route>
+        <Route path="/" exact>
+          {
+            userData ? (
+              <Redirect to="/user" />
+            ) : (
+              <Login />
+            )
+          }
+        </Route>
         <Route path="/user" exact>
-          <Home />
+          {
+            userData ? (<Home user={userData} />) : (<Redirect to="/" />)
+          }
         </Route>
       </div>
     </Router>

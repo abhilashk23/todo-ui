@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import todo from '../images/todo.webp'
 import { Button } from 'antd';
 import { Input, Space } from 'antd';
@@ -10,6 +11,7 @@ import axios from 'axios';
 function Login() {
 
   const { Title } = Typography;
+  const history = useHistory();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -29,7 +31,11 @@ function Login() {
 
     try {
       await axios.post('http://localhost:5000/users/login', { username, password })
-        .then((response) => localStorage.setItem('token', response.data))
+        .then((response) => {
+          localStorage.setItem('token', response.data);
+          history.push('/user');
+          window.location.reload();
+        })
         .catch(error => console.log('Invalid creds'))
     } catch (error) {
 
